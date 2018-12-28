@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/dnvriend/akka-persistence-inmemory](https://badges.gitter.im/dnvriend/akka-persistence-inmemory.svg)](https://gitter.im/dnvriend/akka-persistence-inmemory?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/digital-magic-io/akka-persistence-inmemory.svg?branch=master)](https://travis-ci.org/digital-magic-io/akka-persistence-inmemory)
-[![Download](https://api.bintray.com/packages/digital-magic/maven/akka-persistence-inmemory/images/download.svg) ](https://bintray.com/digital-magic/maven/akka-persistence-inmemory/_latestVersion)
+[![Download](https://api.bintray.com/packages/digital-magic/digital-magic/akka-persistence-inmemory/images/download.svg) ](https://bintray.com/digital-magic/digital-magic/akka-persistence-inmemory/_latestVersion)
 [![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 [akka-persistence-inmemory](https://github.com/dnvriend/akka-persistence-inmemory) is a plugin for akka-persistence that stores journal and snapshot messages memory, which is very useful when testing persistent actors, persistent FSM and akka cluster.

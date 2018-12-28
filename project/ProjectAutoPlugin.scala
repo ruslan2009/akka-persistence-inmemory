@@ -71,8 +71,8 @@ object ProjectAutoPlugin extends AutoPlugin {
 
   override lazy val projectSettings: Seq[Setting[_]] = SbtScalariform.scalariformSettings ++ Seq(
     name := "akka-persistence-inmemory",
-    organization := "com.github.dnvriend",
-    organizationName := "Dennis Vriend",
+    organization := "io.digital-magic",
+    organizationName := "Digital Magic Ltd.",
     description := "A plugin for storing events in an event journal akka-persistence-inmemory",
     startYear := Some(2014),
 
