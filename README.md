@@ -1,25 +1,25 @@
 # akka-persistence-inmemory
 
 [![Join the chat at https://gitter.im/dnvriend/akka-persistence-inmemory](https://badges.gitter.im/dnvriend/akka-persistence-inmemory.svg)](https://gitter.im/dnvriend/akka-persistence-inmemory?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/dnvriend/akka-persistence-inmemory.svg?branch=master)](https://travis-ci.org/dnvriend/akka-persistence-inmemory)
-[![Download](https://api.bintray.com/packages/dnvriend/maven/akka-persistence-inmemory/images/download.svg) ](https://bintray.com/dnvriend/maven/akka-persistence-inmemory/_latestVersion)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2cedef156eaf441fbe867becfc5fcb24)](https://www.codacy.com/app/dnvriend/akka-persistence-inmemory?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dnvriend/akka-persistence-inmemory&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/digital-magic-io/akka-persistence-inmemory.svg?branch=master)](https://travis-ci.org/dnvriend/akka-persistence-inmemory)
+[![Download](https://api.bintray.com/packages/dnvriend/maven/akka-persistence-inmemory/images/download.svg) ](https://bintray.com/digital-magic/maven/akka-persistence-inmemory/_latestVersion)
 [![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 [akka-persistence-inmemory](https://github.com/dnvriend/akka-persistence-inmemory) is a plugin for akka-persistence that stores journal and snapshot messages memory, which is very useful when testing persistent actors, persistent FSM and akka cluster.
+
+#### Disclaimer
+This fork was created to deliver a fix for [[issue #55](https://github.com/dnvriend/akka-persistence-inmemory/issues/55)] which hardly affects one of our clients. 
+Build is provided only for Scala 2.12.
 
 ## Installation
 Add the following to your `build.sbt`:
 
 ```scala
 // the library is available in Bintray repository
-resolvers += "dnvriend" at "http://dl.bintray.com/dnvriend/maven"
+resolvers += Resolver.bintrayRepo("digital-magic", "digital-magic")
 
 // akka 2.5.x
-libraryDependencies += "com.github.dnvriend" %% "akka-persistence-inmemory" % "2.5.15.1"
-
-// akka 2.4.x
-libraryDependencies += "com.github.dnvriend" %% "akka-persistence-inmemory" % "2.4.20.0"
+libraryDependencies += "io.digital-magic" %% "akka-persistence-inmemory" % "2.5.15.2"
 ```
 
 ## Contribution policy
