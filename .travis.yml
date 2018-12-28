@@ -1,20 +1,19 @@
 language: scala
 jdk:
-  - oraclejdk8
+- oraclejdk8
 scala:
-  - 2.12.6
+- 2.12.6
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION test packageBin packageDoc packageSrc packagedArtifacts
+- sbt ++$TRAVIS_SCALA_VERSION test packageBin packageDoc packageSrc packagedArtifacts
 sudo: false
 notifications:
   email:
-    - sergei@digital-magic.io
+  - sergei@digital-magic.io
 deploy:
   provider: bintray
   file: ".bintray.json"
   user: LoneEngineer
   key:
-    secure: TijVsMUXqEH+6VfrobKsQPSv3B5DzsHxE2iQ6GJzaIisKjSx66XMnX9bXxZlrs+WGQT5hGQFb7tBqhFr7trFHhFdVJaOK1BJ/eq9wcnte29TM8whNCcR54OVLvpw6uu2BeIGLvkM7Ee7iFKLpYNMf0xwOuwdvLK+DTBTHz5J+WAXQBllRIg0xn5BKZ8sYV0p4AcsMKHlD3348QYPHTqdgcAaVa7W9pHAdnpbHNcBAzwlf0zoJqU6zdeU2H7t4091tMCQURK1guldjTPjMxWcBgNIlOjoKhE9lGrFRvAJn9W/vQmaXVbyUmZEjLVtYgl6ekm1JeRUGBZ79j1vp5KjBac2/YmcS8yg+zfqzVxf2KDKg/T7aUUsDtLD4OhM4AlWHvJGVyJmC9cmNg0/GIPZusdhEN/5zARCYZ97caCtY+6ZfRivCIJkUa9NqxA+zVLtFXE/ao5eodeKMJnQph2xaE3obMweqt667NtmWnvwV4XVxD+R+08GQzlcD1QbgGkQV/bJ5mcvFuD680umY0F+zxDmVY5pAjQvDmAeQdiEEz/1wajC3SnZO5sHeinoIG0zf8J4TYtA81FJw2YaPWOXNnkIplk8isal/77ivrKpKIr/j5t2vXcqeZj0S1VkIkXPZlkk6SEoN/rKrOBW5GUgZi6s8Xmbhu7UgbIq7gG6WUQ=
+    secure: k+nypOceDIk5dHonZ7oBBujTFQIH42zBk1yeGPULq1VcUFBAEJ9KbGIchur+hv8gb1uUrZ1hw29nEMCR654ZNZNKxb+Qqt+0Fis7jhSJgGgsUv2JmF4Ync9DV4cgzd6578icTR8qPgGYU8Twpit8dz/qi8r5vAGFBglguCmlyXqxoKVl5AB3NLTAz/yn58BQvIT+8LaVVzsJqvUrEVp+mQXy0qp2RXRmKtqOkEGUe8AYBtzN6LWKfvbi8S1qat1GuDk34pYCU1yfrkKF76El+LQKoMAnNJ8dBapshT7uc0MNDvTt29/f9HVbWmzElbG/gNc2AHH1SmCSTlhE3iFUQGFVbM1dR3tpLeIMMJfFulkwKNKLXxuttu6IlGBZuTkKCMdaKJ4B78ecWE80WkFZjcV1EVQ29q/Vh15VOWpzjt7hMoPzBVW1t77JJS/Ky6R4i/e46UT0TPR+eLX89FBcFink2jwz3Gyh7NY+FAg4nFYPF4iGRwBBr5rO57b068GRkeRHquo+vkJwbR6edFk9pkOVuBWtJuxOfCHM8ND74LsKE82GwYdr3CZsfrlKPKPuo/1/lxHaxZ5p7l2jWq4qzfNCttdYx2sqmqThhm4O1xefSVzdOY8AcgniyUzzWfW8RwB7EgYpbyOr9pcHsQCo1BcqTlu5mEry090/OvFt2+c=
   on: 2.5.0.0
   skip_cleanup: true
-
