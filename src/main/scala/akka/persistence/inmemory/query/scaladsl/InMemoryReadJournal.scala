@@ -18,26 +18,27 @@ package akka.persistence.inmemory
 package query
 package scaladsl
 
+import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 import akka.NotUsed
-import akka.actor.{ ActorRef, ExtendedActorSystem }
-import akka.event.{ Logging, LoggingAdapter }
+import akka.actor.{ActorRef, ExtendedActorSystem}
+import akka.event.{Logging, LoggingAdapter}
 import akka.pattern.ask
-import akka.persistence.{ Persistence, PersistentRepr }
-import akka.persistence.inmemory.extension.{ InMemoryJournalStorage, StorageExtension }
+import akka.persistence.{Persistence, PersistentRepr}
+import akka.persistence.inmemory.extension.{InMemoryJournalStorage, StorageExtension}
 import akka.persistence.inmemory.util.UUIDs
 import akka.persistence.query._
 import akka.persistence.query.scaladsl._
 import akka.serialization.SerializationExtension
-import akka.stream.scaladsl.{ Flow, Sink, Source }
-import akka.stream.{ ActorMaterializer, Materializer }
+import akka.stream.scaladsl.{Flow, Sink, Source}
+import akka.stream.{ActorMaterializer, Materializer}
 import akka.util.Timeout
 import com.typesafe.config.Config
 
-import scala.collection.immutable.{ Iterable, Seq }
+import scala.collection.immutable.{Iterable, Seq}
 import scala.concurrent.duration._
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 
 object InMemoryReadJournal {
@@ -143,7 +144,7 @@ class InMemoryReadJournal(config: Config, journal: ActorRef)(implicit val system
       def nextFromOffset(xs: Seq[EventEnvelope2]): Offset = {
         if (xs.isEmpty) from else xs.last.offset match {
           case Sequence(n)         => Sequence(n)
-          case TimeBasedUUID(time) => TimeBasedUUID(UUIDs.startOf(UUIDs.unixTimestamp(time) + 1))
+          case TimeBasedUUID(time) => TimeBasedUUID(new UUID(UUIDs.makeMSB(time.timestamp() + 1), UUIDs.MIN_CLOCK_SEQ_AND_NODE))
         }
       }
       ticker.flatMapConcat(_ => currentEventsByTag(tag, from)
