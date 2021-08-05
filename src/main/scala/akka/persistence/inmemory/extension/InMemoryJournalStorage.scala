@@ -100,7 +100,7 @@ class InMemoryJournalStorage(serialization: Serialization) extends Actor with Ac
 
   def delete(ref: ActorRef, persistenceId: String, toSequenceNr: Long): Unit = {
     val pidEntries = journal.filter(_._1 == persistenceId)
-    val notDeleted = pidEntries.mapValues(_.filterNot(_.sequenceNr <= toSequenceNr))
+    val notDeleted = pidEntries.mapValues(_.filterNot(_.sequenceNr <= toSequenceNr)).toMap
 
     val deleted = pidEntries
       .mapValues(_.filter(_.sequenceNr <= toSequenceNr).map { journalEntry =>
@@ -110,7 +110,7 @@ class InMemoryJournalStorage(serialization: Serialization) extends Actor with Ac
           case scala.util.Failure(cause) => throw cause
         }
         journalEntry.copy(deleted = true).copy(serialized = byteArray).copy(repr = updatedRepr)
-      })
+      }).toMap
 
     journal = journal.filterNot(_._1 == persistenceId) |+| deleted |+| notDeleted
 

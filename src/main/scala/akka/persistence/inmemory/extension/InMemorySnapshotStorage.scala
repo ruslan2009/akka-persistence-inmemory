@@ -47,7 +47,7 @@ class InMemorySnapshotStorage extends Actor with ActorLogging {
 
   def delete(persistenceId: String, predicate: snapshotEntry => Boolean): Unit = {
     val pidEntries = snapshot.filter(_._1 == persistenceId)
-    val notDeleted = pidEntries.mapValues(_.filterNot(predicate))
+    val notDeleted = pidEntries.mapValues(_.filterNot(predicate)).toMap
     snapshot = snapshot.filterNot(_._1 == persistenceId) |+| notDeleted
   }
 
